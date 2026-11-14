@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#4b1027">
+<title>For My Sir Ji — From Your Masoom</title>
+<style>
+:root{--wine:#4b1027;--berry:#7d2447;--rose:#f5dbe4;--gold:#e8c77a;--cream:#fff8f4}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#8c3b5a,#260b19 70%);color:var(--cream);font-family:Georgia,serif;min-height:100vh}
+main{width:min(760px,94vw);margin:0 auto;padding:24px 0 50px}.panel{display:none;background:linear-gradient(145deg,rgba(255,248,244,.98),rgba(247,222,230,.97));color:var(--wine);border:1px solid #e8c77a;border-radius:26px;padding:clamp(22px,5vw,42px);box-shadow:0 20px 70px #16050d99;text-align:center;overflow:hidden}.panel.active{display:block;animation:appear .7s ease}
+@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.kicker{letter-spacing:4px;text-transform:uppercase;font:12px Arial,sans-serif;color:var(--berry)}h1{font-size:clamp(34px,8vw,60px);line-height:1.04;margin:14px 0;color:var(--wine)}h2{font-size:clamp(27px,6vw,42px);margin:8px 0 16px}p{font-size:18px;line-height:1.65}.sub{font-style:italic;color:#7d4259}
+button{border:0;border-radius:999px;padding:14px 25px;background:var(--wine);color:white;font-size:16px;cursor:pointer;margin:10px 5px;box-shadow:0 7px 18px #4b102733}button:hover{transform:translateY(-2px)}button.secondary{background:#a85b75}
+.hero{font-size:58px;margin:12px}.photo{width:100%;max-height:620px;object-fit:contain;border-radius:18px;border:5px solid white;box-shadow:0 8px 28px #4b102733;margin:12px 0;background:#f2e5e8}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:20px 0}.gallery img{width:100%;height:220px;object-fit:cover;border-radius:14px;border:3px solid white}.balloons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:24px 0}.balloon{font-size:54px;background:none;padding:4px;box-shadow:none;animation:float 2.5s ease-in-out infinite}.balloon:nth-child(even){animation-delay:.6s}@keyframes float{50%{transform:translateY(-12px)}}.message{min-height:45px;font-size:20px;color:var(--berry);font-style:italic}
+.letter{background:#fffaf0;border:1px solid #d7b77a;border-radius:14px;padding:22px;text-align:left;line-height:1.8;font-size:18px;white-space:pre-line}
+.cake{font-size:90px;margin:15px}.flame{display:inline-block;animation:flicker .5s infinite alternate}@keyframes flicker{to{transform:scale(.85);opacity:.7}}
+.gift{font-size:100px;animation:bounce 1.5s infinite}@keyframes bounce{50%{transform:translateY(-12px)}}
+footer{text-align:center;color:#f7dce5;font:13px Arial,sans-serif;margin:18px}
+@media(max-width:480px){.gallery img{height:155px}.panel{padding:22px 16px}}
+</style></head><body><main>
+<section class="panel active" id="p0">
+<div class="kicker">A little surprise, made with all my love</div><div class="hero">❤️</div>
+<h1>Happy Birthday,<br>My Sir Ji!</h1>
+<p class="sub">To my favourite person, my forever home, and the one who makes my world softer.</p>
+<div class="gallery" id="coverGallery"></div>
+<p>Before you go looking for your gift, I have a few little things for you…</p>
+<button onclick="go(1)">Open your surprise ✨</button>
+</section>
+<section class="panel" id="p1">
+<div class="kicker">A tiny game from your Masoom</div><h2>Pop the balloons, Sir Ji! 🎈</h2>
+<p>Every balloon is hiding a little reminder of how much you mean to me. Tap them one by one.</p>
+<div class="balloons" id="balloons"></div><div class="message" id="msg">Pop a balloon to reveal your first message 💗</div>
+<button id="balloonNext" onclick="go(2)" style="display:none">One more surprise →</button>
+</section>
+<section class="panel" id="p2">
+<div class="kicker">Make a birthday wish</div><h2>One candle, one big wish 🕯️</h2>
+<div class="cake">🎂<span class="flame" id="flame">🕯️</span></div>
+<p>Close your eyes, make a wish, and tap below to blow out your candle. I wish I could be right there beside you.</p>
+<button onclick="blow()">Blow the candle 💨</button><p id="wishMsg" class="sub"></p>
+<div id="cakePhoto" style="display:none"></div><button id="cakeNext" style="display:none" onclick="go(3)">Read my letter 💌</button>
+</section>
+<section class="panel" id="p3">
+<div class="kicker">A letter from your Masoom</div><h2>To my Sir Ji, with all my heart</h2>
+<div class="letter">My dearest Sir Ji,
+
+Happy birthday, my love. ❤️
+
+I may not be beside you for every moment today, but please know that my heart is always with you. Even miles apart, you are the person I want to share every little happiness, every silly moment and every big dream with.
+
+Our pictures hold so many beautiful memories, but my favourite part is not the place or the clothes — it is that I get to make these memories with you. Thank you for being my person, my comfort and my partner in this journey.
+
+I pray this new year of your life brings you happiness, good health, success and everything your heart quietly wishes for. May we keep growing together, laughing together and choosing each other every day.
+
+And now, birthday boy… your final surprise is waiting. Follow the clue!
+
+Forever yours,
+Your Masoom ❤️</div>
+<div class="gallery" id="letterGallery"></div>
+<button onclick="go(4)">Find your gift 🎁</button>
+</section>
+<section class="panel" id="p4">
+<div class="kicker">Your final birthday mission</div><div class="gift">🎁</div>
+<h1>Your gift is waiting…</h1><h2>IN THE HALL! ❤️</h2>
+<p>Now go, Sir Ji, and find your treasure. Look around carefully — your Masoom has kept something special waiting just for you.</p>
+<p class="sub">The real gift is wrapped… but the biggest gift in my life is you. 🥹</p>
+<div class="hero">💋</div><h2>Happy Birthday once again!</h2>
+<p>With endless love,<br><strong>Your Masoom</strong></p>
+<button class="secondary" onclick="go(0)">Watch our little story again ↺</button>
+</section>
+<footer>Made with love, just for Sir Ji · From your Masoom ❤️</footer>
+</main>
+<script>
+const photos = ["assets/photo-01.jpg", "assets/photo-02.jpg", "assets/photo-03.jpg", "assets/photo-04.jpg", "assets/photo-05.jpg", "assets/photo-06.jpg", "assets/photo-07.jpg", "assets/photo-08.webp"];;
+function img(i,alt){const el=document.createElement('img');el.src=photos[i];el.alt=alt;el.loading='lazy';return el}
+function addGallery(id,indices){const g=document.getElementById(id);indices.forEach((i)=>g.appendChild(img(i,'A favourite memory together')))}
+addGallery('coverGallery',[0,1]);addGallery('letterGallery',[2,3,4,5]);
+function go(n){document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));document.getElementById('p'+n).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+const lines=['You are my favourite notification, every single day. ❤️','If I had to choose again, I would still choose you.','My safest place is wherever you are.','Distance can keep us apart for a while, never my love.','You make ordinary days feel special.','I am always cheering for you, Sir Ji!'];
+let count=0;const b=document.getElementById('balloons');
+['🎈','🎈','🎈','🎈','🎈','🎈'].forEach((emoji,i)=>{const x=document.createElement('button');x.className='balloon';x.textContent=emoji;x.setAttribute('aria-label','Pop balloon');x.onclick=()=>{if(x.dataset.popped)return;x.dataset.popped='1';x.textContent='💗';document.getElementById('msg').textContent=lines[i];count++;if(count===6){document.getElementById('msg').textContent='All popped! Sending you six hugs and a million kisses. 💋';document.getElementById('balloonNext').style.display='inline-block'}};b.appendChild(x)});
+function blow(){document.getElementById('flame').textContent='';document.getElementById('wishMsg').textContent='Wish made! May every good thing find its way to you. ❤️';document.getElementById('cakePhoto').style.display='block';const box=document.getElementById('cakePhoto');if(!box.hasChildNodes()){const im=img(6,'A sweet birthday cake memory together');im.className='photo';box.appendChild(im)}document.getElementById('cakeNext').style.display='inline-block'}
+</script></body></html>
